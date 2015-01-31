@@ -94,11 +94,20 @@ module tower_r1(r, h){
 }
 
 module main() {
-	translate([-20, 0, 0]) tower_s0(10, 15);
-	translate([0, 0, 0]) tower_s2(10, 15);
-	translate([20, 0, 0]) tower_s1(10, 15);
-	translate([0, 20, 0]) tower_r0(5, 15);
-	translate([20, 20, 0]) tower_r1(8, 20);
+	translate([-20, 0, 0])
+		tower_s0(10, 15);
+
+	translate([0, 0, 0])
+		tower_s2(10, 15);
+
+	translate([20, 0, 0])
+		tower_s1(10, 15);
+
+	translate([0, 20, 0])
+		tower_r0(5, 15);
+
+	translate([20, 20, 0])
+		tower_r1(8, 20);
 }
 
 main();
