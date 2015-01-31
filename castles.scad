@@ -94,14 +94,17 @@ module tower_r1(r, h){
 }
 
 module main() {
+	TOWER_SQUARE_WIDTH = 10;
+	TOWER_SQUARE_HEIGHT = 15;
+
 	translate([-20, 0, 0])
-		tower_s0(10, 15);
+		tower_s0(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
 
 	translate([0, 0, 0])
-		tower_s2(10, 15);
+		tower_s2(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
 
 	translate([20, 0, 0])
-		tower_s1(10, 15);
+		tower_s1(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
 
 	translate([0, 20, 0])
 		tower_r0(5, 15);
