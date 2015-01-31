@@ -90,21 +90,6 @@ module tower_r1(r, h){
 		cube([r*0.55, r*0.075, r*0.2]);
 	}
 	}
-	/*difference(){
-	cylinder(r=r*0.8, h=h-r, $fn=30);
-	translate([0, 0, h*0.195])
-	for(i=[1:12]){
-		rotate(a=[0, 0, i*30])
-		translate([r*0.7, 0, 0])
-		cube([r*0.2, r*0.2, h*0.81-r]);
-	}
-	}
-	difference(){
-		translate([0, 0, h-r]) 
-		cylinder(r1=r, r2=r*0.9, h=r, $fn=30);
-		translate([0, 0, h-r*0.5])
-		cylinder(r=0.6*r, h=r*0.51, $fn=30);
-	}*/
 	}
 }
 
