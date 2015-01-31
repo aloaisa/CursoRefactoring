@@ -93,7 +93,7 @@ module tower_r1(r, h){
 	}
 }
 
-module main() {
+module drawSquareTowers() {
 	TOWER_SQUARE_WIDTH = 10;
 	TOWER_SQUARE_HEIGHT = 15;
 
@@ -105,12 +105,19 @@ module main() {
 
 	translate([20, 0, 0])
 		tower_s1(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
+}
 
+module drawRoundTowers() {
 	translate([0, 20, 0])
 		tower_r0(5, 15);
 
 	translate([20, 20, 0])
 		tower_r1(8, 20);
+}
+
+module main() {
+	drawSquareTowers();
+	drawRoundTowers();
 }
 
 main();
