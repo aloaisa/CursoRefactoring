@@ -14,32 +14,33 @@ module drawColumnTower(width, height) {
 	POSITION = [0, 0, height / 2];
 	DIMENSIONS = [width, width, height];
 
-	translate(POSITION)
-		cube(DIMENSIONS, center = CUBE_CENTER);
+	drawCube(POSITION, DIMENSIONS);
 }
 
 module drawTopFloorSpace(width, height) {
 	POSITION = [0, 0, height];
 	DIMENSIONS = [width * 0.8, width * 0.8, height * 0.1];
 
-	translate(POSITION)
-		cube(DIMENSIONS, center = CUBE_CENTER);
+	drawCube(POSITION, DIMENSIONS);
 }
 
 module drawTopXCut(width, height) {
 	POSITION = [0, 0, height];
 	DIMENSIONS = [width * 1.1, width * 0.15, height * 0.2];
 
-	translate(POSITION)
-		cube(DIMENSIONS, center = CUBE_CENTER);
+	drawCube(POSITION, DIMENSIONS);
 }
 
 module drawTopYCut(width, height) {
 	POSITION = [0, 0, height];
 	DIMENSIONS = [width * 0.15, width * 1.1, height * 0.2];
 
-	translate(POSITION)
-		cube(DIMENSIONS, center = CUBE_CENTER);
+	drawCube(POSITION, DIMENSIONS);
+}
+
+module drawCube(position, dimensions) {
+	translate(position)
+		cube(dimensions, center = CUBE_CENTER);
 }
 
 
