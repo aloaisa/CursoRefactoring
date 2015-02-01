@@ -29,7 +29,7 @@ module drawTopFloorSpace(2dFillSpace) {
 	z_dimension_variation = 0.1;
 
 	3d_dimension_variations = [x_dimension_variation, y_dimension_variation, z_dimension_variation];
-	
+
 	drawCubeWithVariations(2dFillSpace, 3d_dimension_variations);
 }
 
@@ -156,31 +156,31 @@ module tower_r1(r, h){
 }
 
 module drawSquareTowers() {
-	TOWER_SQUARE_WIDTH = 10;
-	TOWER_SQUARE_HEIGHT = 15;
+	towerSquareWith = 10;
+	towerSquareHeight = 15;
 
-	POSITION_FIRST_TOWER = [-SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
-	POSITION_SECOND_TOWER = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
-	POSITION_THIRD_TOWER = [SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
+	positionFirstTower = [-SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
+	positionSecondTower = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
+	positionThirdTower = [SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 
-	translate(POSITION_FIRST_TOWER)
-		drawSquareTower0([TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT]);
+	translate(positionFirstTower)
+		drawSquareTower0([towerSquareWith, towerSquareHeight]);
 
-	translate(POSITION_SECOND_TOWER)
-		tower_s2(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
+	translate(positionSecondTower)
+		tower_s2(towerSquareWith, towerSquareHeight);
 
-	translate(POSITION_THIRD_TOWER)
-		tower_s1(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
+	translate(positionThirdTower)
+		tower_s1(towerSquareWith, towerSquareHeight);
 }
 
 module drawRoundTowers() {
-	POSITION_FIRST_TOWER = [SPACE_BASE_POSITION, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
-	POSITION_SECOND_TOWER = [SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
+	positionFirstTower = [SPACE_BASE_POSITION, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
+	positionSecondTower = [SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
 
-	translate(POSITION_FIRST_TOWER)
+	translate(positionFirstTower)
 		tower_r0(5, 15);
 
-	translate(POSITION_SECOND_TOWER)
+	translate(positionSecondTower)
 		tower_r1(8, 20);
 }
 
