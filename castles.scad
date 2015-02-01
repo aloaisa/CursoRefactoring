@@ -96,14 +96,15 @@ module tower_r1(r, h){
 module drawSquareTowers() {
 	TOWER_SQUARE_WIDTH = 10;
 	TOWER_SQUARE_HEIGHT = 15;
-
-	translate([-20, 0, 0])
+	SPACE_BETWEEN_TOWERS = 20;
+	
+	translate([-SPACE_BETWEEN_TOWERS, 0, 0])
 		tower_s0(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
 
 	translate([0, 0, 0])
 		tower_s2(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
 
-	translate([20, 0, 0])
+	translate([SPACE_BETWEEN_TOWERS, 0, 0])
 		tower_s1(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
 }
 
