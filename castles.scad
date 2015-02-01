@@ -11,7 +11,9 @@ module drawSquareTower0(blen, height) {
 }
 
 module drawColumnTower(blen, height) {
-	translate([0, 0, height / 2])
+	POSITION = [0, 0, height / 2];
+
+	translate(POSITION)
 		cube([blen, blen, height], center = CUBE_CENTER);
 }
 
