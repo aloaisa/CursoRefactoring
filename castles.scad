@@ -1,28 +1,29 @@
 SPACE_BETWEEN_TOWERS = 20;
+CUBE_CENTER = true;
 
 module drawSquareTower0(blen, height) {
-	CENTER = true;
-
 	difference() {
 		translate([0, 0, height / 2])
-			cube([blen, blen, height], center = CENTER);
+			cube([blen, blen, height], center = CUBE_CENTER);
 
 		translate([0, 0, height])
-			cube([blen * 0.8, blen * 0.8, height * 0.1], center = CENTER);
+			cube([blen * 0.8, blen * 0.8, height * 0.1], center = CUBE_CENTER);
 
 		drawTopXCut(blen, height);
-
-		translate([0, 0, height])
-			cube([blen * 0.15, blen * 1.1, height * 0.2], center = CENTER);
+		drawTopYCut(blen, height);
 	}
 }
 
 module drawTopXCut(blen, height) {
-	CENTER = true;
-
 	translate([0, 0, height])
-		cube([blen * 1.1, blen * 0.15, height * 0.2], center = CENTER);
+		cube([blen * 1.1, blen * 0.15, height * 0.2], center = CUBE_CENTER);
 }
+
+module drawTopYCut(blen, height) {
+	translate([0, 0, height])
+		cube([blen * 0.15, blen * 1.1, height * 0.2], center = CUBE_CENTER);
+}
+
 
 // tower with triangular roof
 module tower_s1(blen, height){
