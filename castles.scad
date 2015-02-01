@@ -19,18 +19,27 @@ module drawColumnTower(width, height) {
 }
 
 module drawTopFloorSpace(width, height) {
-	translate([0, 0, height])
-		cube([width * 0.8, width * 0.8, height * 0.1], center = CUBE_CENTER);
+	POSITION = [0, 0, height];
+	DIMENSIONS = [width * 0.8, width * 0.8, height * 0.1];
+
+	translate(POSITION)
+		cube(DIMENSIONS, center = CUBE_CENTER);
 }
 
 module drawTopXCut(width, height) {
-	translate([0, 0, height])
-		cube([width * 1.1, width * 0.15, height * 0.2], center = CUBE_CENTER);
+	POSITION = [0, 0, height];
+	DIMENSIONS = [width * 1.1, width * 0.15, height * 0.2];
+
+	translate(POSITION)
+		cube(DIMENSIONS, center = CUBE_CENTER);
 }
 
 module drawTopYCut(width, height) {
-	translate([0, 0, height])
-		cube([width * 0.15, width * 1.1, height * 0.2], center = CUBE_CENTER);
+	POSITION = [0, 0, height];
+	DIMENSIONS = [width * 0.15, width * 1.1, height * 0.2];
+
+	translate(POSITION)
+		cube(DIMENSIONS, center = CUBE_CENTER);
 }
 
 
