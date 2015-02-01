@@ -1,4 +1,5 @@
-// tower with cross roof
+SPACE_BETWEEN_TOWERS = 20;
+
 module tower_s0(blen, height){
 	difference(){
 		translate([0, 0, height/2]) cube([blen, blen, height], center=true);
@@ -96,7 +97,6 @@ module tower_r1(r, h){
 module drawSquareTowers() {
 	TOWER_SQUARE_WIDTH = 10;
 	TOWER_SQUARE_HEIGHT = 15;
-	SPACE_BETWEEN_TOWERS = 20;
 
 	POSITION_FIRST_TOWER = [-SPACE_BETWEEN_TOWERS, 0, 0];
 	POSITION_SECOND_TOWER = [0, 0, 0];
@@ -113,10 +113,10 @@ module drawSquareTowers() {
 }
 
 module drawRoundTowers() {
-	translate([0, 20, 0])
+	translate([0, SPACE_BETWEEN_TOWERS, 0])
 		tower_r0(5, 15);
 
-	translate([20, 20, 0])
+	translate([SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, 0])
 		tower_r1(8, 20);
 }
 
