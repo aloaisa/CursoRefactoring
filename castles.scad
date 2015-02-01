@@ -1,35 +1,35 @@
 SPACE_BETWEEN_TOWERS = 20;
 CUBE_CENTER = true;
 
-module drawSquareTower0(blen, height) {
+module drawSquareTower0(width, height) {
 	difference() {
-		drawColumnTower(blen, height);
-		drawTopFloorSpace(blen, height);
-		drawTopXCut(blen, height);
-		drawTopYCut(blen, height);
+		drawColumnTower(width, height);
+		drawTopFloorSpace(width, height);
+		drawTopXCut(width, height);
+		drawTopYCut(width, height);
 	}
 }
 
-module drawColumnTower(blen, height) {
+module drawColumnTower(width, height) {
 	POSITION = [0, 0, height / 2];
 
 	translate(POSITION)
-		cube([blen, blen, height], center = CUBE_CENTER);
+		cube([width, width, height], center = CUBE_CENTER);
 }
 
-module drawTopFloorSpace(blen, height) {
+module drawTopFloorSpace(width, height) {
 	translate([0, 0, height])
-		cube([blen * 0.8, blen * 0.8, height * 0.1], center = CUBE_CENTER);
+		cube([width * 0.8, width * 0.8, height * 0.1], center = CUBE_CENTER);
 }
 
-module drawTopXCut(blen, height) {
+module drawTopXCut(width, height) {
 	translate([0, 0, height])
-		cube([blen * 1.1, blen * 0.15, height * 0.2], center = CUBE_CENTER);
+		cube([width * 1.1, width * 0.15, height * 0.2], center = CUBE_CENTER);
 }
 
-module drawTopYCut(blen, height) {
+module drawTopYCut(width, height) {
 	translate([0, 0, height])
-		cube([blen * 0.15, blen * 1.1, height * 0.2], center = CUBE_CENTER);
+		cube([width * 0.15, width * 1.1, height * 0.2], center = CUBE_CENTER);
 }
 
 
