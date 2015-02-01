@@ -22,21 +22,33 @@ module drawColumnTower(width, height) {
 
 module drawTopFloorSpace(width, height) {
 	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
-	DIMENSIONS = [width * 0.8, width * 0.8, height * 0.1];
+
+	DIMENSION_X = width * 0.8;
+	DIMENSION_Y = width * 0.8;
+	DIMENSION_Z = height * 0.1;
+	DIMENSIONS = [DIMENSION_X, DIMENSION_Y, DIMENSION_Z];
 
 	drawCube(POSITION, DIMENSIONS);
 }
 
 module drawTopXCut(width, height) {
 	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
-	DIMENSIONS = [width * 1.1, width * 0.15, height * 0.2];
+
+	DIMENSION_X = width * 1.1;
+	DIMENSION_Y = width * 0.15;
+	DIMENSION_Z = height * 0.2;
+	DIMENSIONS = [DIMENSION_X, DIMENSION_Y, DIMENSION_Z];
 
 	drawCube(POSITION, DIMENSIONS);
 }
 
 module drawTopYCut(width, height) {
 	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
-	DIMENSIONS = [width * 0.15, width * 1.1, height * 0.2];
+
+	DIMENSION_X = width * 0.15;
+	DIMENSION_Y = width * 1.1;
+	DIMENSION_Z = height * 0.2;
+	DIMENSIONS = [DIMENSION_X, DIMENSION_Y, DIMENSION_Z];
 
 	drawCube(POSITION, DIMENSIONS);
 }
