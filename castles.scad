@@ -4,18 +4,18 @@ CUBE_CENTER = true;
 
 function halfOf(item) = item / 2;
 
-module drawSquareTower0(width, height) {
+module drawSquareTower0(2dFillSpace) {
 	difference() {
-		drawColumnTower(width, height);
-		drawTopFloorSpace([width, height]);
-		drawTopXCut(width, height);
-		drawTopYCut(width, height);
+		drawColumnTower(2dFillSpace);
+		drawTopFloorSpace(2dFillSpace);
+		drawTopXCut(2dFillSpace);
+		drawTopYCut(2dFillSpace);
 	}
 }
 
-module drawColumnTower(width, height) {
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(height)];
-	dimensions = [width, width, height];
+module drawColumnTower(2dFillSpace) {
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(2dFillSpace[1])];
+	dimensions = [2dFillSpace[0], 2dFillSpace[0], 2dFillSpace[1]];
 
 	drawCube(position, dimensions);
 }
@@ -30,34 +30,24 @@ module drawTopFloorSpace(2dFillSpace) {
 	drawCubeWithVariations(2dFillSpace, 3d_dimension_variations);
 }
 
-module drawTopXCut(width, height) {
+module drawTopXCut(2dFillSpace) {
 	x_dimension_variation = 1.1;
 	y_dimension_variation = 0.15;
 	z_dimension_variation = 0.2;
 
-	dimension_x = width * x_dimension_variation;
-	dimension_y = width * y_dimension_variation;
-	dimension_z = height * z_dimension_variation;
-	dimensions = [dimension_x, dimension_y, dimension_z];
-
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
-
-	drawCube(position, dimensions);
+	3d_dimension_variations = [x_dimension_variation, y_dimension_variation, z_dimension_variation];
+	
+	drawCubeWithVariations(2dFillSpace, 3d_dimension_variations);
 }
 
-module drawTopYCut(width, height) {
+module drawTopYCut(2dFillSpace) {
 	x_dimension_variation = 0.15;
 	y_dimension_variation = 1.1;
 	z_dimension_variation = 0.2;
 
-	dimension_x = width * x_dimension_variation;
-	dimension_y = width * y_dimension_variation;
-	dimension_z = height * z_dimension_variation;
-	dimensions = [dimension_x, dimension_y, dimension_z];
-
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
-
-	drawCube(position, dimensions);
+	3d_dimension_variations = [x_dimension_variation, y_dimension_variation, z_dimension_variation];
+	
+	drawCubeWithVariations(2dFillSpace, 3d_dimension_variations);
 }
 
 module drawCubeWithVariations(2dFillSpace, 3dDimensionVariations) {
@@ -171,7 +161,7 @@ module drawSquareTowers() {
 	POSITION_THIRD_TOWER = [SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 
 	translate(POSITION_FIRST_TOWER)
-		drawSquareTower0(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
+		drawSquareTower0([TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT]);
 
 	translate(POSITION_SECOND_TOWER)
 		tower_s2(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
