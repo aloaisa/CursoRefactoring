@@ -10,14 +10,19 @@ module drawSquareTower0(blen, height) {
 		translate([0, 0, height])
 			cube([blen * 0.8, blen * 0.8, height * 0.1], center = CENTER);
 
-		translate([0, 0, height])
-			cube([blen * 1.1, blen * 0.15, height * 0.2], center = CENTER);
+		drawTopXCut(blen, height);
 
 		translate([0, 0, height])
 			cube([blen * 0.15, blen * 1.1, height * 0.2], center = CENTER);
 	}
 }
 
+module drawTopXCut(blen, height) {
+	CENTER = true;
+
+	translate([0, 0, height])
+		cube([blen * 1.1, blen * 0.15, height * 0.2], center = CENTER);
+}
 
 // tower with triangular roof
 module tower_s1(blen, height){
