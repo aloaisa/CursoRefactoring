@@ -1,13 +1,21 @@
 SPACE_BETWEEN_TOWERS = 20;
 
-module tower_s0(blen, height){
-	difference(){
-		translate([0, 0, height/2]) cube([blen, blen, height], center=true);
-		translate([0, 0, height]) cube([blen*0.8, blen*0.8, height*0.1], center=true);
-		translate([0, 0, height]) cube([blen*1.1, blen*0.15, height*0.2], center=true);
-		translate([0, 0, height]) cube([blen*0.15, blen*1.1, height*0.2], center=true);
+module drawSquareTower0(blen, height) {
+	difference() {
+		translate([0, 0, height/2])
+			cube([blen, blen, height], center=true);
+
+		translate([0, 0, height])
+			cube([blen*0.8, blen*0.8, height*0.1], center=true);
+
+		translate([0, 0, height])
+			cube([blen*1.1, blen*0.15, height*0.2], center=true);
+
+		translate([0, 0, height])
+			cube([blen*0.15, blen*1.1, height*0.2], center=true);
 	}
 }
+
 
 // tower with triangular roof
 module tower_s1(blen, height){
@@ -103,7 +111,7 @@ module drawSquareTowers() {
 	POSITION_THIRD_TOWER = [SPACE_BETWEEN_TOWERS, 0, 0];
 
 	translate(POSITION_FIRST_TOWER)
-		tower_s0(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
+		drawSquareTower0(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
 
 	translate(POSITION_SECOND_TOWER)
 		tower_s2(TOWER_SQUARE_WIDTH, TOWER_SQUARE_HEIGHT);
