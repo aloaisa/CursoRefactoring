@@ -12,9 +12,10 @@ module drawSquareTower0(width, height) {
 
 module drawColumnTower(width, height) {
 	POSITION = [0, 0, height / 2];
+	DIMENSIONS = [width, width, height];
 
 	translate(POSITION)
-		cube([width, width, height], center = CUBE_CENTER);
+		cube(DIMENSIONS, center = CUBE_CENTER);
 }
 
 module drawTopFloorSpace(width, height) {
