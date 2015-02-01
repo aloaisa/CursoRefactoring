@@ -7,6 +7,9 @@ Z = 2;
 
 function halfOf(item) = item / 2;
 
+function calculateDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X], 2DSpace[X] * 3DVariations[Y], 2DSpace[Y] * 3DVariations[Z]];
+
+
 module drawSquareTower0(2dFillSpace) {
 	difference() {
 		drawColumnTower(2dFillSpace);
@@ -54,11 +57,7 @@ module drawTopYCut(2dFillSpace) {
 }
 
 module drawCubeWithVariations(2dFillSpace, 3dDimensionVariations) {
-	xDimension = 2dFillSpace[X] * 3dDimensionVariations[X];
-	yDimension = 2dFillSpace[X] * 3dDimensionVariations[Y];
-	zDimension = 2dFillSpace[Y] * 3dDimensionVariations[Z];
-	dimensions = [xDimension, yDimension, zDimension];
-
+	dimensions = calculateDimensions(2dFillSpace, 3dDimensionVariations);
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]];
 
 	drawCube(position, dimensions);
