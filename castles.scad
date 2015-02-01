@@ -113,10 +113,13 @@ module drawSquareTowers() {
 }
 
 module drawRoundTowers() {
-	translate([0, SPACE_BETWEEN_TOWERS, 0])
+	POSITION_FIRST_TOWER = [0, SPACE_BETWEEN_TOWERS, 0];
+	POSITION_SECOND_TOWER = [SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, 0];
+
+	translate(POSITION_FIRST_TOWER)
 		tower_r0(5, 15);
 
-	translate([SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, 0])
+	translate(POSITION_SECOND_TOWER)
 		tower_r1(8, 20);
 }
 
