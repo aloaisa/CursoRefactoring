@@ -1,6 +1,9 @@
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
 CUBE_CENTER = true;
+X = 0;
+Y = 1;
+Z = 2;
 
 function halfOf(item) = item / 2;
 
@@ -14,8 +17,8 @@ module drawSquareTower0(2dFillSpace) {
 }
 
 module drawColumnTower(2dFillSpace) {
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(2dFillSpace[1])];
-	dimensions = [2dFillSpace[0], 2dFillSpace[0], 2dFillSpace[1]];
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(2dFillSpace[Y])];
+	dimensions = [2dFillSpace[X], 2dFillSpace[X], 2dFillSpace[Y]];
 
 	drawCube(position, dimensions);
 }
@@ -51,12 +54,12 @@ module drawTopYCut(2dFillSpace) {
 }
 
 module drawCubeWithVariations(2dFillSpace, 3dDimensionVariations) {
-	xDimension = 2dFillSpace[0] * 3dDimensionVariations[0];
-	yDimension = 2dFillSpace[0] * 3dDimensionVariations[1];
-	zDimension = 2dFillSpace[1] * 3dDimensionVariations[2];
+	xDimension = 2dFillSpace[X] * 3dDimensionVariations[X];
+	yDimension = 2dFillSpace[X] * 3dDimensionVariations[Y];
+	zDimension = 2dFillSpace[Y] * 3dDimensionVariations[Z];
 	dimensions = [xDimension, yDimension, zDimension];
 
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[1]];
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]];
 
 	drawCube(position, dimensions);
 }
