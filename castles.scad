@@ -1,18 +1,20 @@
 SPACE_BETWEEN_TOWERS = 20;
 
 module drawSquareTower0(blen, height) {
+	CENTER = true;
+
 	difference() {
-		translate([0, 0, height/2])
-			cube([blen, blen, height], center=true);
+		translate([0, 0, height / 2])
+			cube([blen, blen, height], center = CENTER);
 
 		translate([0, 0, height])
-			cube([blen*0.8, blen*0.8, height*0.1], center=true);
+			cube([blen * 0.8, blen * 0.8, height * 0.1], center = CENTER);
 
 		translate([0, 0, height])
-			cube([blen*1.1, blen*0.15, height*0.2], center=true);
+			cube([blen * 1.1, blen * 0.15, height * 0.2], center = CENTER);
 
 		translate([0, 0, height])
-			cube([blen*0.15, blen*1.1, height*0.2], center=true);
+			cube([blen * 0.15, blen * 1.1, height * 0.2], center = CENTER);
 	}
 }
 
