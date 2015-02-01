@@ -3,13 +3,21 @@ CUBE_CENTER = true;
 
 module drawSquareTower0(blen, height) {
 	difference() {
-		translate([0, 0, height / 2])
-			cube([blen, blen, height], center = CUBE_CENTER);
-
+		drawColumnTower(blen, height);
 		drawTopFloorSpace(blen, height);
 		drawTopXCut(blen, height);
 		drawTopYCut(blen, height);
 	}
+}
+
+module drawColumnTower(blen, height) {
+	translate([0, 0, height / 2])
+		cube([blen, blen, height], center = CUBE_CENTER);
+}
+
+module drawTopFloorSpace(blen, height) {
+	translate([0, 0, height])
+		cube([blen * 0.8, blen * 0.8, height * 0.1], center = CUBE_CENTER);
 }
 
 module drawTopXCut(blen, height) {
@@ -20,11 +28,6 @@ module drawTopXCut(blen, height) {
 module drawTopYCut(blen, height) {
 	translate([0, 0, height])
 		cube([blen * 0.15, blen * 1.1, height * 0.2], center = CUBE_CENTER);
-}
-
-module drawTopFloorSpace(blen, height) {
-	translate([0, 0, height])
-		cube([blen * 0.8, blen * 0.8, height * 0.1], center = CUBE_CENTER);
 }
 
 
