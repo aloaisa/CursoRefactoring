@@ -14,43 +14,47 @@ module drawSquareTower0(width, height) {
 }
 
 module drawColumnTower(width, height) {
-	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(height)];
-	DIMENSIONS = [width, width, height];
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(height)];
+	dimensions = [width, width, height];
 
-	drawCube(POSITION, DIMENSIONS);
+	drawCube(position, dimensions);
 }
 
 module drawTopFloorSpace(width, height) {
-	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
+	x_dimension_variation = 0.8;
+	y_dimension_variation = 0.8;
+	z_dimension_variation = 0.1;
 
-	DIMENSION_X = width * 0.8;
-	DIMENSION_Y = width * 0.8;
-	DIMENSION_Z = height * 0.1;
-	DIMENSIONS = [DIMENSION_X, DIMENSION_Y, DIMENSION_Z];
+	dimension_x = width * x_dimension_variation;
+	dimension_y = width * y_dimension_variation;
+	dimension_z = height * z_dimension_variation;
+	dimensions = [dimension_x, dimension_y, dimension_z];
 
-	drawCube(POSITION, DIMENSIONS);
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
+
+	drawCube(position, dimensions);
 }
 
 module drawTopXCut(width, height) {
-	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
 
-	DIMENSION_X = width * 1.1;
-	DIMENSION_Y = width * 0.15;
-	DIMENSION_Z = height * 0.2;
-	DIMENSIONS = [DIMENSION_X, DIMENSION_Y, DIMENSION_Z];
+	dimension_x = width * 1.1;
+	dimension_y = width * 0.15;
+	dimension_z = height * 0.2;
+	dimensions = [dimension_x, dimension_y, dimension_z];
 
-	drawCube(POSITION, DIMENSIONS);
+	drawCube(position, dimensions);
 }
 
 module drawTopYCut(width, height) {
-	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
 
-	DIMENSION_X = width * 0.15;
-	DIMENSION_Y = width * 1.1;
-	DIMENSION_Z = height * 0.2;
-	DIMENSIONS = [DIMENSION_X, DIMENSION_Y, DIMENSION_Z];
+	dimension_x = width * 0.15;
+	dimension_y = width * 1.1;
+	dimension_z = height * 0.2;
+	dimensions = [dimension_x, dimension_y, dimension_z];
 
-	drawCube(POSITION, DIMENSIONS);
+	drawCube(position, dimensions);
 }
 
 module drawCube(position, dimensions) {
