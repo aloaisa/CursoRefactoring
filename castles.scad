@@ -2,6 +2,8 @@ SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
 CUBE_CENTER = true;
 
+function halfOf(item) = item / 2;
+
 module drawSquareTower0(width, height) {
 	difference() {
 		drawColumnTower(width, height);
@@ -12,7 +14,7 @@ module drawSquareTower0(width, height) {
 }
 
 module drawColumnTower(width, height) {
-	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height / 2];
+	POSITION = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(height)];
 	DIMENSIONS = [width, width, height];
 
 	drawCube(POSITION, DIMENSIONS);
