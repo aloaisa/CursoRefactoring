@@ -36,23 +36,31 @@ module drawTopFloorSpace(width, height) {
 }
 
 module drawTopXCut(width, height) {
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
+	x_dimension_variation = 1.1;
+	y_dimension_variation = 0.15;
+	z_dimension_variation = 0.2;
 
-	dimension_x = width * 1.1;
-	dimension_y = width * 0.15;
-	dimension_z = height * 0.2;
+	dimension_x = width * x_dimension_variation;
+	dimension_y = width * y_dimension_variation;
+	dimension_z = height * z_dimension_variation;
 	dimensions = [dimension_x, dimension_y, dimension_z];
+
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
 
 	drawCube(position, dimensions);
 }
 
 module drawTopYCut(width, height) {
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
+	x_dimension_variation = 0.15;
+	y_dimension_variation = 1.1;
+	z_dimension_variation = 0.2;
 
-	dimension_x = width * 0.15;
-	dimension_y = width * 1.1;
-	dimension_z = height * 0.2;
+	dimension_x = width * x_dimension_variation;
+	dimension_y = width * y_dimension_variation;
+	dimension_z = height * z_dimension_variation;
 	dimensions = [dimension_x, dimension_y, dimension_z];
+
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height];
 
 	drawCube(position, dimensions);
 }
