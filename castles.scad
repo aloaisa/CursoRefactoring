@@ -68,8 +68,18 @@ module drawTopCorners(2dFillSpace) {
 	for(i = [1 : 4]) {
 		rotate([0, 0, 90 * i])
 			translate([2dFillSpace[X] * 0.3, 2dFillSpace[X] * 0.3, 2dFillSpace[Y]])
-				cube([2dFillSpace[X] * 0.2, 2dFillSpace[X] * 0.2, 2dFillSpace[X] * 0.1]);
+				drawCorner(2dFillSpace[X]);
 	}
+}
+
+module drawCorner(size) {
+	X_VARIATION_SIZE = 0.2;
+	Y_VARIATION_SIZE = 0.2;
+	Z_VARIATION_SIZE = 0.1;
+
+	dimensions = [size * X_VARIATION_SIZE, size * Y_VARIATION_SIZE, size * Z_VARIATION_SIZE];
+
+	cube(dimensions);
 }
 
 module tower_r0(r, h){
