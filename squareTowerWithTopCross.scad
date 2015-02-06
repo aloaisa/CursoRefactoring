@@ -18,13 +18,6 @@ module drawSquareTowerWithTopCross(2dFillSpace) {
 	}
 }
 
-module drawColumnTower(2dFillSpace) {
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, halfOf(2dFillSpace[Y])];
-	dimensions = [2dFillSpace[X], 2dFillSpace[X], 2dFillSpace[Y]];
-
-	drawCube(position, dimensions);
-}
-
 module drawTopFloorSpace(2dFillSpace) {
 	X_DIMENSION_VARIATION = 0.8;
 	Y_DIMENSION_VARIATION = 0.8;

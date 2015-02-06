@@ -1,4 +1,5 @@
 include <squareTowerWithTopCross.scad>
+include <squareTower.scad>
 
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
@@ -36,8 +37,7 @@ module tower_s1(blen, height){
 
 module drawSquareBasicTower(width, heigth) {
 	difference() {
-		translate([0, 0, heigth / 2])
-			cube([width, width, heigth], center=true);
+		drawColumnTower([width, heigth]);
 	
 		translate([0, 0, heigth])
 			cube([width * 0.8, width * 0.8, width * 0.4], center=true);
