@@ -29,31 +29,31 @@ module drawColumnTower(2dFillSpace) {
 }
 
 module drawTopFloorSpace(2dFillSpace) {
-	x_dimension_variation = 0.8;
-	y_dimension_variation = 0.8;
-	z_dimension_variation = 0.1;
+	X_DIMENSION_VARIATION = 0.8;
+	Y_DIMENSION_VARIATION = 0.8;
+	Z_DIMENSION_VARIATION = 0.1;
 
-	3d_dimension_variations = [x_dimension_variation, y_dimension_variation, z_dimension_variation];
+	3d_dimension_variations = [X_DIMENSION_VARIATION, Y_DIMENSION_VARIATION, Z_DIMENSION_VARIATION];
 
 	drawCubeWithVariations(2dFillSpace, 3d_dimension_variations);
 }
 
 module drawTopXCut(2dFillSpace) {
-	x_dimension_variation = 1.1;
-	y_dimension_variation = 0.15;
-	z_dimension_variation = 0.2;
+	X_DIMENSION_VARIATION = 1.1;
+	Y_DIMENSION_VARIATION = 0.15;
+	Z_DIMENSION_VARIATION = 0.2;
 
-	3d_dimension_variations = [x_dimension_variation, y_dimension_variation, z_dimension_variation];
+	3d_dimension_variations = [X_DIMENSION_VARIATION, Y_DIMENSION_VARIATION, Z_DIMENSION_VARIATION];
 	
 	drawCubeWithVariations(2dFillSpace, 3d_dimension_variations);
 }
 
 module drawTopYCut(2dFillSpace) {
-	x_dimension_variation = 0.15;
-	y_dimension_variation = 1.1;
-	z_dimension_variation = 0.2;
+	X_DIMENSION_VARIATION = 0.15;
+	Y_DIMENSION_VARIATION = 1.1;
+	Z_DIMENSION_VARIATION = 0.2;
 
-	3d_dimension_variations = [x_dimension_variation, y_dimension_variation, z_dimension_variation];
+	3d_dimension_variations = [X_DIMENSION_VARIATION, Y_DIMENSION_VARIATION, Z_DIMENSION_VARIATION];
 	
 	drawCubeWithVariations(2dFillSpace, 3d_dimension_variations);
 }
@@ -157,21 +157,21 @@ module tower_r1(r, h){
 }
 
 module drawSquareTowers() {
-	towerSquareWidth = 10;
-	towerSquareHeight = 15;
+	WIDTH = 10;
+	HEIGTH = 15;
 
 	positionFirstTower = [-SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 	positionSecondTower = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 	positionThirdTower = [SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 
 	translate(positionFirstTower)
-		drawSquareTower0([towerSquareWidth, towerSquareHeight]);
+		drawSquareTower0([WIDTH, HEIGTH]);
 
 	translate(positionSecondTower)
-		tower_s2(towerSquareWidth, towerSquareHeight);
+		tower_s2(WIDTH, HEIGTH);
 
 	translate(positionThirdTower)
-		tower_s1(towerSquareWidth, towerSquareHeight);
+		tower_s1(WIDTH, HEIGTH);
 }
 
 module drawRoundTowers() {
