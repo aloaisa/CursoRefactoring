@@ -39,11 +39,7 @@ module drawSquareBasicTower(width, heigth) {
 		drawBasicTopFloorSpace([width, heigth]);
 	}
 
-	for(i = [1 : 4]) {
-		rotate([0, 0, 90 * i])
-			translate([width * 0.3, width * 0.3, heigth])
-				cube([width * 0.2, width * 0.2, width * 0.1]);
-	}
+	drawTopCorners([width, heigth]);
 }
 
 function calculateBasicDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
@@ -66,6 +62,14 @@ module drawBasicCubeWithVariations(2dFillSpace, 3dVariations) {
 	dimensions = calculateBasicDimensions(2dFillSpace, 3dVariations);
 
 	drawCube(position, dimensions);
+}
+
+module drawTopCorners(2dFillSpace) {
+	for(i = [1 : 4]) {
+		rotate([0, 0, 90 * i])
+			translate([2dFillSpace[X] * 0.3, 2dFillSpace[X] * 0.3, 2dFillSpace[Y]])
+				cube([2dFillSpace[X] * 0.2, 2dFillSpace[X] * 0.2, 2dFillSpace[X] * 0.1]);
+	}
 }
 
 module tower_r0(r, h){
