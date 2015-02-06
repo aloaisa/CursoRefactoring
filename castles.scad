@@ -33,13 +33,13 @@ module tower_s1(blen, height){
 	}
 }
 
-module drawSquareBasicTower(width, heigth) {
+module drawSquareBasicTower(2dFillSpace) {
 	difference() {
-		drawColumnTower([width, heigth]);
-		drawBasicTopFloorSpace([width, heigth]);
+		drawColumnTower(2dFillSpace);
+		drawBasicTopFloorSpace(2dFillSpace);
 	}
 
-	drawTopCorners([width, heigth]);
+	drawTopCorners(2dFillSpace);
 }
 
 function calculateBasicDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
@@ -141,7 +141,7 @@ module drawSquareTowers() {
 		drawSquareTowerWithTopCross([WIDTH, HEIGTH]);
 
 	translate(positionSecondTower)
-		drawSquareBasicTower(WIDTH, HEIGTH);
+		drawSquareBasicTower([WIDTH, HEIGTH]);
 
 	translate(positionThirdTower)
 		tower_s1(WIDTH, HEIGTH);
