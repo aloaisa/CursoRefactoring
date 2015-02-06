@@ -1,4 +1,4 @@
-include <squareTower0.scad>
+include <squareTowerWithTopCross.scad>
 
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
