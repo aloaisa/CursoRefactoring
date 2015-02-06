@@ -34,19 +34,19 @@ module tower_s1(blen, height){
 	}
 }
 
-module drawSquareBasicTower(len, h) {
+module drawSquareBasicTower(width, heigth) {
 	difference() {
-		translate([0, 0, h/2])
-			cube([len, len, h], center=true);
+		translate([0, 0, heigth / 2])
+			cube([width, width, heigth], center=true);
 	
-		translate([0, 0, h])
-			cube([len*0.8, len*0.8, len*0.4], center=true);
+		translate([0, 0, heigth])
+			cube([width * 0.8, width * 0.8, width * 0.4], center=true);
 	}
 
 	for(i = [1 : 4]) {
 		rotate([0, 0, 90 * i])
-			translate([len * 0.3, len * 0.3, h])
-				cube([len * 0.2, len * 0.2, len * 0.1]);
+			translate([width * 0.3, width * 0.3, heigth])
+				cube([width * 0.2, width * 0.2, width * 0.1]);
 	}
 }
 
