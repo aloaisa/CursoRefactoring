@@ -54,10 +54,16 @@ module drawBasicTopFloorSpace(2dFillSpace) {
 	X_DIMENSION_VARIATION = 0.8;
 	Y_DIMENSION_VARIATION = 0.8;
 	Z_DIMENSION_VARIATION = 0.4;
+
 	3dDimensionVariations = [X_DIMENSION_VARIATION, Y_DIMENSION_VARIATION, Z_DIMENSION_VARIATION];
 
+	drawBasicCubeWithVariations(2dFillSpace, 3dDimensionVariations);
+}
+
+module drawBasicCubeWithVariations(2dFillSpace, 3dVariations) {
+
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]];
-	dimensions = calculateBasicDimensions(2dFillSpace, 3dDimensionVariations);
+	dimensions = calculateBasicDimensions(2dFillSpace, 3dVariations);
 
 	drawCube(position, dimensions);
 }
