@@ -38,9 +38,7 @@ module tower_s1(blen, height){
 module drawSquareBasicTower(width, heigth) {
 	difference() {
 		drawColumnTower([width, heigth]);
-	
-		translate([0, 0, heigth])
-			cube([width * 0.8, width * 0.8, width * 0.4], center=true);
+		drawBasicTopFloorSpace([width, heigth]);
 	}
 
 	for(i = [1 : 4]) {
@@ -48,6 +46,17 @@ module drawSquareBasicTower(width, heigth) {
 			translate([width * 0.3, width * 0.3, heigth])
 				cube([width * 0.2, width * 0.2, width * 0.1]);
 	}
+}
+
+module drawBasicTopFloorSpace(2dFillSpace) {
+	X_DIMENSION_VARIATION = 0.8;
+	Y_DIMENSION_VARIATION = 0.8;
+	Z_DIMENSION_VARIATION = 0.4;
+
+	3dDimensionVariation = [2dFillSpace[X] * X_DIMENSION_VARIATION, 2dFillSpace[X] * Y_DIMENSION_VARIATION, 2dFillSpace[X] * Z_DIMENSION_VARIATION];
+
+	translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]])
+		cube(3dDimensionVariation, center=true);
 }
 
 module tower_r0(r, h){
