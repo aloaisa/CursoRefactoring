@@ -2,8 +2,6 @@ X = 0;
 Y = 1;
 Z = 2;
 
-function halfOf(item) = item / 2;
-
 function calculateDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
 													 2DSpace[X] * 3DVariations[Y],
 													 2DSpace[Y] * 3DVariations[Z]];
@@ -53,9 +51,4 @@ module drawCubeWithVariations(2dFillSpace, 3dDimensionVariations) {
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]];
 
 	drawCube(position, dimensions);
-}
-
-module drawCube(position, dimensions) {
-	translate(position)
-		cube(dimensions, center = CUBE_CENTER);
 }
