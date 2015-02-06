@@ -46,16 +46,18 @@ module drawSquareBasicTower(width, heigth) {
 	}
 }
 
+function calculateBasicDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
+														 2DSpace[X] * 3DVariations[Y],
+														 2DSpace[X] * 3DVariations[Z]];
+
 module drawBasicTopFloorSpace(2dFillSpace) {
 	X_DIMENSION_VARIATION = 0.8;
 	Y_DIMENSION_VARIATION = 0.8;
 	Z_DIMENSION_VARIATION = 0.4;
 
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]];
-	dimensions = [2dFillSpace[X] * X_DIMENSION_VARIATION,
-				 2dFillSpace[X] * Y_DIMENSION_VARIATION,
-				 2dFillSpace[X] * Z_DIMENSION_VARIATION];
-	
+	dimensions = calculateBasicDimensions(2dFillSpace, [X_DIMENSION_VARIATION, Y_DIMENSION_VARIATION, Z_DIMENSION_VARIATION]);
+
 	drawCube(position, dimensions);
 }
 
