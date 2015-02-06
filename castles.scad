@@ -34,18 +34,19 @@ module tower_s1(blen, height){
 	}
 }
 
-// basic squarish tower
-module tower_s2(len, h){
-	difference(){
-	translate([0, 0, h/2])
-	cube([len, len, h], center=true);
-	translate([0, 0, h])
-	cube([len*0.8, len*0.8, len*0.4], center=true);
+module drawSquareBasicTower(len, h) {
+	difference() {
+		translate([0, 0, h/2])
+			cube([len, len, h], center=true);
+	
+		translate([0, 0, h])
+			cube([len*0.8, len*0.8, len*0.4], center=true);
 	}
-	for(i=[1:4]){
-		rotate([0, 0, 90*i])
-		translate([len*0.3, len*0.3, h])
-		cube([len*0.2, len*0.2, len*0.1]);
+
+	for(i = [1 : 4]) {
+		rotate([0, 0, 90 * i])
+			translate([len * 0.3, len * 0.3, h])
+				cube([len * 0.2, len * 0.2, len * 0.1]);
 	}
 }
 
@@ -102,7 +103,7 @@ module drawSquareTowers() {
 		drawSquareTowerWithTopCross([WIDTH, HEIGTH]);
 
 	translate(positionSecondTower)
-		tower_s2(WIDTH, HEIGTH);
+		drawSquareBasicTower(WIDTH, HEIGTH);
 
 	translate(positionThirdTower)
 		tower_s1(WIDTH, HEIGTH);
