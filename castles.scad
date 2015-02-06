@@ -3,8 +3,6 @@ include <squareTower.scad>
 
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
-CUBE_CENTER = true;
-
 
 // tower with triangular roof
 module tower_s1(blen, height){
@@ -53,10 +51,12 @@ module drawBasicTopFloorSpace(2dFillSpace) {
 	Y_DIMENSION_VARIATION = 0.8;
 	Z_DIMENSION_VARIATION = 0.4;
 
-	3dDimensionVariation = [2dFillSpace[X] * X_DIMENSION_VARIATION, 2dFillSpace[X] * Y_DIMENSION_VARIATION, 2dFillSpace[X] * Z_DIMENSION_VARIATION];
-
-	translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]])
-		cube(3dDimensionVariation, center=true);
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y]];
+	dimensions = [2dFillSpace[X] * X_DIMENSION_VARIATION,
+				 2dFillSpace[X] * Y_DIMENSION_VARIATION,
+				 2dFillSpace[X] * Z_DIMENSION_VARIATION];
+	
+	drawCube(position, dimensions);
 }
 
 module tower_r0(r, h){
