@@ -66,10 +66,14 @@ module drawBasicCubeWithVariations(2dFillSpace, 3dVariations) {
 
 module drawTopCorners(2dFillSpace) {
 	DIMENSION_VARIATION = 0.3;
+	X_ROTATION = 0;
+	Y_ROTATION = 0;
+	Z_ROTATION = 90;
+	position = [2dFillSpace[X] * DIMENSION_VARIATION, 2dFillSpace[X] * DIMENSION_VARIATION, 2dFillSpace[Y]];
 
-	for(i = [1 : 4]) {
-		rotate([0, 0, 90 * i])
-			translate([2dFillSpace[X] * DIMENSION_VARIATION, 2dFillSpace[X] * DIMENSION_VARIATION, 2dFillSpace[Y]])
+	for(index = [1 : 4]) {
+		rotate([	X_ROTATION, Y_ROTATION, Z_ROTATION * index])
+			translate(position)
 				drawCorner(2dFillSpace[X]);
 	}
 }
