@@ -99,7 +99,7 @@ module drawSquareTowers() {
 	positionThirdTower = [SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 
 	translate(positionFirstTower)
-		drawSquareTower0([WIDTH, HEIGTH]);
+		drawSquareTowerWithTopCross([WIDTH, HEIGTH]);
 
 	translate(positionSecondTower)
 		tower_s2(WIDTH, HEIGTH);

@@ -9,7 +9,7 @@ function calculateDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations
 													 2DSpace[Y] * 3DVariations[Z]];
 
 
-module drawSquareTower0(2dFillSpace) {
+module drawSquareTowerWithTopCross(2dFillSpace) {
 	difference() {
 		drawColumnTower(2dFillSpace);
 		drawTopFloorSpace(2dFillSpace);
