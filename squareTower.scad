@@ -1,3 +1,6 @@
+X = 0;
+Y = 1;
+Z = 2;
 CUBE_CENTER = true;
 
 function halfOf(item) = item / 2;

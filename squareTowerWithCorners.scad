@@ -1,3 +1,7 @@
+function calculateBasicDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
+															2DSpace[X] * 3DVariations[Y],
+															2DSpace[X] * 3DVariations[Z]];
+
 module drawSquareBasicTower(2dFillSpace) {
 	difference() {
 		drawColumnTower(2dFillSpace);
@@ -6,10 +10,6 @@ module drawSquareBasicTower(2dFillSpace) {
 
 	drawTopCorners(2dFillSpace);
 }
-
-function calculateBasicDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
-														 2DSpace[X] * 3DVariations[Y],
-														 2DSpace[X] * 3DVariations[Z]];
 
 module drawBasicTopFloorSpace(2dFillSpace) {
 	X_DIMENSION_VARIATION = 0.8;

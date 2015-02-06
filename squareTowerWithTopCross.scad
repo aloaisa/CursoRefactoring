@@ -1,10 +1,6 @@
-X = 0;
-Y = 1;
-Z = 2;
-
 function calculateDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
-													 2DSpace[X] * 3DVariations[Y],
-													 2DSpace[Y] * 3DVariations[Z]];
+													   2DSpace[X] * 3DVariations[Y],
+													   2DSpace[Y] * 3DVariations[Z]];
 
 
 module drawSquareTowerWithTopCross(2dFillSpace) {
