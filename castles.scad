@@ -5,8 +5,7 @@ include <squareTower.scad>
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
 
-// tower with triangular roof
-module tower_s1(blen, height){
+module drawTriangularRoofTower(blen, height){
 	difference(){
 	union(){
 	difference(){
@@ -33,6 +32,7 @@ module tower_s1(blen, height){
 	cube([blen*0.2, blen*0.2, blen*0.2], center=true);
 	}
 }
+
 
 module tower_r0(r, h){
 	union(){
@@ -91,7 +91,7 @@ module drawSquareTowers() {
 		drawSquareBasicTower(2dFillSpace);
 
 	translate(positionThirdTower)
-		tower_s1(WIDTH, HEIGTH);
+		drawTriangularRoofTower(WIDTH, HEIGTH);
 }
 
 module drawRoundTowers() {
