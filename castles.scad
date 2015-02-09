@@ -78,16 +78,17 @@ module tower_r1(r, h){
 module drawSquareTowers() {
 	WIDTH = 10;
 	HEIGTH = 15;
+	2dFillSpace = [WIDTH, HEIGTH];
 
 	positionFirstTower = [-SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 	positionSecondTower = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 	positionThirdTower = [SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 
 	translate(positionFirstTower)
-		drawSquareTowerWithTopCross([WIDTH, HEIGTH]);
+		drawSquareTowerWithTopCross(2dFillSpace);
 
 	translate(positionSecondTower)
-		drawSquareBasicTower([WIDTH, HEIGTH]);
+		drawSquareBasicTower(2dFillSpace);
 
 	translate(positionThirdTower)
 		tower_s1(WIDTH, HEIGTH);
