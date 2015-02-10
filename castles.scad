@@ -10,8 +10,7 @@ module drawTriangularRoofTower(blen, height) {
 		union() {
 			difference() {
 				union() {
-					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height / 2]) 
-						cube([blen, blen, height], center = true);
+					drawColumnTower([blen, height]);
 
 					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height-blen * 0.25]) 
 						cube([blen * 1.2, blen * 1.2, blen * 0.5], center = true);
