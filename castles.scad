@@ -44,18 +44,21 @@ function calculateTriangleDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVa
 
 module drawTopFloorTriangularSpace(2dFillSpace) {
 	X_DIMENSION_VARIATION = 1.2;
+	Y_DIMENSION_VARIATION = 1.2;
 	Z_DIMENSION_VARIATION = 0.5;
+	3dDimensionVariations = [X_DIMENSION_VARIATION, Y_DIMENSION_VARIATION, Z_DIMENSION_VARIATION];
 
-	3dDimensionVariations = [X_DIMENSION_VARIATION, X_DIMENSION_VARIATION, Z_DIMENSION_VARIATION];
+	drawTriangleTopCubeWithVariations(2dFillSpace, 3dDimensionVariations);
+}
 
-	dimensions = calculateTriangleDimensions(2dFillSpace, 3dDimensionVariations);
-
+module drawTriangleTopCubeWithVariations(2dFillSpace, 3dDimensionVariations) {
 	border_z_position = 2dFillSpace[Y] - 2dFillSpace[X] * 0.25;
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, border_z_position];
 
+	dimensions = calculateTriangleDimensions(2dFillSpace, 3dDimensionVariations);
+
 	drawCube(position, dimensions);
 }
-
 
 module tower_r0(r, h){
 	union(){
