@@ -37,10 +37,23 @@ module drawTriangularRoofTower(width, height) {
 	}
 }
 
-module drawTopFloorTriangularSpace(2dFillSpace) {
-	translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y] - 2dFillSpace[X] * 0.25]) 
-		cube([2dFillSpace[X] * 1.2, 2dFillSpace[X] * 1.2, 2dFillSpace[X] * 0.5], center = CUBE_CENTER);
+function calculateTriangleDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
+															 2DSpace[X] * 3DVariations[X],
+															 2DSpace[X] * 3DVariations[Z]];
 
+
+module drawTopFloorTriangularSpace(2dFillSpace) {
+	X_DIMENSION_VARIATION = 1.2;
+	Z_DIMENSION_VARIATION = 0.5;
+
+	3dDimensionVariations = [X_DIMENSION_VARIATION, X_DIMENSION_VARIATION, Z_DIMENSION_VARIATION];
+
+	dimensions = calculateTriangleDimensions(2dFillSpace, 3dDimensionVariations);
+
+	border_z_position = 2dFillSpace[Y] - 2dFillSpace[X] * 0.25;
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, border_z_position];
+
+	drawCube(position, dimensions);
 }
 
 
