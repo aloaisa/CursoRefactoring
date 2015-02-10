@@ -52,7 +52,8 @@ module drawTopFloorTriangularSpace(2dFillSpace) {
 }
 
 module drawTriangleTopCubeWithVariations(2dFillSpace, 3dDimensionVariations) {
-	border_z_position = 2dFillSpace[Y] - 2dFillSpace[X] * 0.25;
+	Z_DIMENSION_VARIATION = 0.25;
+	border_z_position = 2dFillSpace[Y] - 2dFillSpace[X] * Z_DIMENSION_VARIATION;
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, border_z_position];
 
 	dimensions = calculateTriangleDimensions(2dFillSpace, 3dDimensionVariations);
