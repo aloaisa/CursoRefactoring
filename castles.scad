@@ -5,37 +5,37 @@ include <squareTower.scad>
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
 
-module drawTriangularRoofTower(blen, height) {
+module drawTriangularRoofTower(width, height) {
 	difference() {
 		union() {
 			difference() {
 				union() {
-					drawColumnTower([blen, height]);
+					drawColumnTower([width, height]);
 
-					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height-blen * 0.25]) 
-						cube([blen * 1.2, blen * 1.2, blen * 0.5], center = true);
+					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.25]) 
+						cube([width * 1.2, width * 1.2, width * 0.5], center = true);
 				}
 
-				translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height-blen * 0.195]) 
-					cube([blen, blen, blen * 0.4], center = true);
+				translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.195]) 
+					cube([width, width, width * 0.4], center = true);
 			}
 
-			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height-blen * 0.2]) rotate(a = [90, 0, 0]) 
-				linear_extrude(height = blen, center = true)
-					polygon(points=[[-blen / 2, 0], [blen / 2, 0], [0, blen / 2]]);
+			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.2]) rotate(a = [90, 0, 0]) 
+				linear_extrude(height = width, center = true)
+					polygon(points=[[-width / 2, 0], [width / 2, 0], [0, width / 2]]);
 		}
 
-		translate([blen / 2, 0, height-blen * 0.8])
-			cube([blen * 0.2, blen * 0.2, blen * 0.2], center = true);
+		translate([width / 2, 0, height - width * 0.8])
+			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
 
-		translate([0, blen / 2, height-blen * 0.8])
-			cube([blen * 0.2, blen * 0.2, blen * 0.2], center = true);
+		translate([0, width / 2, height - width * 0.8])
+			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
 
-		translate([0, -blen / 2, height-blen * 0.8])
-			cube([blen * 0.2, blen * 0.2, blen * 0.2], center = true);
+		translate([0, -width / 2, height - width * 0.8])
+			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
 
-		translate([-blen / 2, 0, height-blen * 0.8])
-			cube([blen * 0.2, blen * 0.2, blen * 0.2], center = true);
+		translate([-width / 2, 0, height - width * 0.8])
+			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
 	}
 }
 
