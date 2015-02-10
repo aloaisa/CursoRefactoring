@@ -10,18 +10,18 @@ module drawTriangularRoofTower(blen, height) {
 		union() {
 			difference() {
 				union() {
-					translate([0, 0, height / 2]) 
+					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height / 2]) 
 						cube([blen, blen, height], center = true);
 
-					translate([0, 0, height-blen * 0.25]) 
+					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height-blen * 0.25]) 
 						cube([blen * 1.2, blen * 1.2, blen * 0.5], center = true);
 				}
 
-				translate([0, 0, height-blen * 0.195]) 
+				translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height-blen * 0.195]) 
 					cube([blen, blen, blen * 0.4], center = true);
 			}
 
-			translate([0, 0, height-blen * 0.2]) rotate(a = [90, 0, 0]) 
+			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height-blen * 0.2]) rotate(a = [90, 0, 0]) 
 				linear_extrude(height = blen, center = true)
 					polygon(points=[[-blen / 2, 0], [blen / 2, 0], [0, blen / 2]]);
 		}
