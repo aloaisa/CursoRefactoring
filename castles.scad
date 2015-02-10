@@ -12,10 +12,9 @@ module drawTriangularRoofTower(width, height) {
 				union() {
 					drawColumnTower([width, height]);
 					drawTopFloorTriangularSpace([width, height]);
-				}
 
-				translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.195]) 
-					cube([width, width, width * 0.4], center = true);
+				}
+				drawTopEmptyTriangularSpace([width, height]);
 			}
 
 			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.2]) rotate(a = [90, 0, 0]) 
@@ -35,6 +34,13 @@ module drawTriangularRoofTower(width, height) {
 		translate([-width / 2, 0, height - width * 0.8])
 			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 	}
+}
+
+module drawTopEmptyTriangularSpace(2dFillSpace) {
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y] - 2dFillSpace[X] * 0.195];
+	dimensions = [2dFillSpace[X], 2dFillSpace[X], 2dFillSpace[X] * 0.4];
+	translate(position) 
+			cube(dimensions, center = CUBE_CENTER);
 }
 
 function calculateTriangleDimensions(2DSpace, 3DVariations) = [2DSpace[X] * 3DVariations[X],
