@@ -11,9 +11,7 @@ module drawTriangularRoofTower(width, height) {
 			difference() {
 				union() {
 					drawColumnTower([width, height]);
-
-					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.25]) 
-						cube([width * 1.2, width * 1.2, width * 0.5], center = CUBE_CENTER);
+					drawTopFloorTriangularSpace([width, height]);
 				}
 
 				translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.195]) 
@@ -37,6 +35,12 @@ module drawTriangularRoofTower(width, height) {
 		translate([-width / 2, 0, height - width * 0.8])
 			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 	}
+}
+
+module drawTopFloorTriangularSpace(2dFillSpace) {
+	translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y] - 2dFillSpace[X] * 0.25]) 
+		cube([2dFillSpace[X] * 1.2, 2dFillSpace[X] * 1.2, 2dFillSpace[X] * 0.5], center = CUBE_CENTER);
+
 }
 
 
