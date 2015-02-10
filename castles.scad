@@ -13,7 +13,7 @@ module drawTriangularRoofTower(width, height) {
 					drawColumnTower([width, height]);
 
 					translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.25]) 
-						cube([width * 1.2, width * 1.2, width * 0.5], center = true);
+						cube([width * 1.2, width * 1.2, width * 0.5], center = CUBE_CENTER);
 				}
 
 				translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.195]) 
@@ -26,16 +26,16 @@ module drawTriangularRoofTower(width, height) {
 		}
 
 		translate([width / 2, 0, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
+			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 
 		translate([0, width / 2, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
+			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 
 		translate([0, -width / 2, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
+			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 
 		translate([-width / 2, 0, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = true);
+			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 	}
 }
 
