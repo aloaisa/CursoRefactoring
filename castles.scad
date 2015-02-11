@@ -12,26 +12,27 @@ module drawTriangularRoofTower(width, height) {
 				union() {
 					drawColumnTower([width, height]);
 					drawTopFloorTriangularSpace([width, height]);
-
 				}
 				drawTopEmptyTriangularSpace([width, height]);
 			}
-
 			drawTopTriangle([width, height]);
 		}
-
-		translate([width / 2, 0, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
-
-		translate([0, width / 2, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
-
-		translate([0, -width / 2, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
-
-		translate([-width / 2, 0, height - width * 0.8])
-			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+		drawWindows(width, height);
 	}
+}
+
+module drawWindows(width, height) {
+	translate([width / 2, 0, height - width * 0.8])
+		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+
+	translate([0, width / 2, height - width * 0.8])
+		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+
+	translate([0, -width / 2, height - width * 0.8])
+		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+
+	translate([-width / 2, 0, height - width * 0.8])
+		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 }
 
 module drawTopTriangle(2dFillSpace) {
