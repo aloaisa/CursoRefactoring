@@ -22,11 +22,16 @@ module drawTriangularRoofTower(width, height) {
 }
 
 module drawWindows(width, height) {
-	positionWindow1 = [width / 2, 0, height - width * 0.8];
-	positionWindow2 = [0, width / 2, height - width * 0.8];
-	positionWindow3 = [0, -width / 2, height - width * 0.8];
-	positionWindow4 = [-width / 2, 0, height - width * 0.8];
-	windowDimensions = [width * 0.2, width * 0.2, width * 0.2];
+	halfWidth = halfOf(width);
+	dimensionVariation = width * 0.2;
+	zPosition = height - width * 0.8;
+
+	positionWindow1 = [halfWidth, SPACE_BASE_POSITION, zPosition];
+	positionWindow2 = [SPACE_BASE_POSITION, halfWidth, zPosition];
+	positionWindow3 = [SPACE_BASE_POSITION, -halfWidth, zPosition];
+	positionWindow4 = [-halfWidth, SPACE_BASE_POSITION, zPosition];
+
+	windowDimensions = [dimensionVariation, dimensionVariation, dimensionVariation];
 
 	drawWindow(positionWindow1, windowDimensions);
 	drawWindow(positionWindow2, windowDimensions);
