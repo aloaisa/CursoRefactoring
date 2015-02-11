@@ -39,7 +39,12 @@ module drawTopTriangle(2dFillSpace) {
 	zVariation = 2dFillSpace[Y] - 2dFillSpace[X] * 0.2;
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, zVariation];
 	
-	variationTriangle = halfOf(2dFillSpace[X]);
+	translate(position) rotate(a = ROTATE_ANGLE) 
+			drawTriangle(2dFillSpace[X]);
+}
+
+module drawTriangle(width) {
+	variationTriangle = halfOf(width);
 
 	xTriangle = [-variationTriangle, SPACE_BASE_POSITION];
 	yTriangle = [variationTriangle, SPACE_BASE_POSITION];
@@ -47,9 +52,9 @@ module drawTopTriangle(2dFillSpace) {
 
 	3dTrianglePolygon = [xTriangle, yTriangle, zTriangle];
 
-	translate(position) rotate(a = ROTATE_ANGLE) 
-			linear_extrude(height = 2dFillSpace[X], center = CUBE_CENTER)
-				polygon(points=3dTrianglePolygon);
+	linear_extrude(height = width, center = CUBE_CENTER)
+		polygon(points=3dTrianglePolygon);
+
 }
 
 module drawTopEmptyTriangularSpace(2dFillSpace) {
