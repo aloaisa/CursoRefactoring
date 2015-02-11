@@ -5,31 +5,31 @@ include <squareTower.scad>
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
 
-module drawTriangularRoofTower(width, height) {
+module drawTriangularRoofTower(2dFillSpace) {
 	difference() {
 		union() {
 			difference() {
 				union() {
-					drawColumnTower([width, height]);
-					drawTopFloorTriangularSpace([width, height]);
+					drawColumnTower(2dFillSpace);
+					drawTopFloorTriangularSpace(2dFillSpace);
 				}
-				drawTopEmptyTriangularSpace([width, height]);
+				drawTopEmptyTriangularSpace(2dFillSpace);
 			}
-			drawTopTriangle([width, height]);
+			drawTopTriangle(2dFillSpace);
 		}
-		drawWindows(width, height);
+		drawWindows(2dFillSpace);
 	}
 }
 
-module drawWindows(width, height) {
-	halfWidth = halfOf(width);
-	dimensionVariation = width * 0.2;
-	zPosition = height - width * 0.8;
+module drawWindows(2dFillSpace) {
+	halfDimension = halfOf(2dFillSpace[X]);
+	dimensionVariation = 2dFillSpace[X] * 0.2;
+	zPosition = 2dFillSpace[Y] - 2dFillSpace[X] * 0.8;
 
-	positionWindow1 = [halfWidth, SPACE_BASE_POSITION, zPosition];
-	positionWindow2 = [SPACE_BASE_POSITION, halfWidth, zPosition];
-	positionWindow3 = [SPACE_BASE_POSITION, -halfWidth, zPosition];
-	positionWindow4 = [-halfWidth, SPACE_BASE_POSITION, zPosition];
+	positionWindow1 = [halfDimension, SPACE_BASE_POSITION, zPosition];
+	positionWindow2 = [SPACE_BASE_POSITION, halfDimension, zPosition];
+	positionWindow3 = [SPACE_BASE_POSITION, -halfDimension, zPosition];
+	positionWindow4 = [-halfDimension, SPACE_BASE_POSITION, zPosition];
 	positionWindows = [positionWindow1, positionWindow2, positionWindow3, positionWindow4];
 
 	windowDimensions = [dimensionVariation, dimensionVariation, dimensionVariation];
@@ -160,7 +160,7 @@ module drawSquareTowers() {
 		drawSquareBasicTower(2dFillSpace);
 
 	translate(positionThirdTower)
-		drawTriangularRoofTower(WIDTH, HEIGTH);
+		drawTriangularRoofTower(2dFillSpace);
 }
 
 module drawRoundTowers() {
