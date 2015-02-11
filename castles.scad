@@ -27,15 +27,17 @@ module tower_r1(r, h){
 }
 
 module drawRoundFirstTower(r, h) {
+	DEGRESS = 30;
+
 	union() {
-		cylinder(r = r, h = h * 0.2, $fn = 30);
+		cylinder(r = r, h = h * 0.2, $fn = DEGRESS);
 
 		difference() {
-			cylinder(r = r * 0.8, h = h - r, $fn = 30);
+			cylinder(r = r * 0.8, h = h - r, $fn = DEGRESS);
 
 			translate([0, 0, h * 0.195])
 				for(i = [1 : 12]) {
-					rotate(a = [0, 0, i * 30])
+					rotate(a = [0, 0, i * DEGRESS])
 						translate([r * 0.7, 0, 0])
 							cube([r * 0.2, r * 0.2, h * 0.81 - r]);
 				}
@@ -43,10 +45,10 @@ module drawRoundFirstTower(r, h) {
 
 		difference() {
 			translate([0, 0, h - r]) 
-				cylinder(r1 = r, r2 = r * 0.9, h = r, $fn = 30);
+				cylinder(r1 = r, r2 = r * 0.9, h = r, $fn = DEGRESS);
 	
 			translate([0, 0, h - r * 0.5])
-				cylinder(r = 0.6 * r, h = r * 0.51, $fn = 30);
+				cylinder(r = 0.6 * r, h = r * 0.51, $fn = DEGRESS);
 		}
 	}
 }
