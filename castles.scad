@@ -28,14 +28,20 @@ module tower_r1(r, h){
 
 module drawRoundFirstTowerTopFloor(radius, height) {
 	DEGRESS = 30;
+	positionTopFloor = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius];
+	radius2TopFloor = radius * 0.9;
+	positionTopFloorSpace = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.5];
+	radiusTopFloorSpace = 0.6 * radius;
+	heightTopFloor = radius * 0.51;
 
 	difference() {
-			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius]) 
-				cylinder(r1 = radius, r2 = radius * 0.9, h = radius, $fn = DEGRESS);
+		drawTopFloorCylinder();
+		translate(positionTopFloor) 
+			cylinder(r1 = radius, r2 = radius2TopFloor, h = radius, $fn = DEGRESS);
 	
-			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.5])
-				cylinder(r = 0.6 * radius, h = radius * 0.51, $fn = DEGRESS);
-		}
+		translate(positionTopFloorSpace)
+			cylinder(r = radiusTopFloorSpace, h = heightTopFloor, $fn = DEGRESS);
+	}
 }
 
 module drawRoundFisrtTowerPrincipalColumn(radius, height) {
