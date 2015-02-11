@@ -31,36 +31,38 @@ module drawCylinder(radius, height) {
 	cylinder(r = radius, h = height, $fn = DEGRESS);
 }
 
+module drawRoundFirstTowerTopFloor(radius, height) {
+	DEGRESS = 30;
+
+	difference() {
+			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius]) 
+				cylinder(r1 = radius, r2 = radius * 0.9, h = radius, $fn = DEGRESS);
+	
+			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.5])
+				cylinder(r = 0.6 * radius, h = radius * 0.51, $fn = DEGRESS);
+		}
+}
+
+module drawRoundFisrtTowerPrincipalColumn(radius, height) {
+	difference() {
+		drawCylinder(radius * 0.8, height - radius);
+
+		translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height * 0.195])
+			for(i = [1 : 12]) {
+				rotate(a = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, i * DEGRESS])
+					translate([radius * 0.7, SPACE_BASE_POSITION, SPACE_BASE_POSITION])
+						cube([radius * 0.2, radius * 0.2, height * 0.81 - radius]);
+			}
+	}
+}
+
 module drawRoundFirstTower(radius, height) {
 	DEGRESS = 30;
 
 	union() {
-		// Draw Base
 		drawCylinder(radius, height * 0.2);
-
-		difference() {
-			// Draw Principal Column
-			drawCylinder(radius * 0.8, height - radius);
-
-
-			// Draw Columns
-			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height * 0.195])
-				for(i = [1 : 12]) {
-					rotate(a = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, i * DEGRESS])
-						translate([radius * 0.7, SPACE_BASE_POSITION, SPACE_BASE_POSITION])
-							cube([radius * 0.2, radius * 0.2, height * 0.81 - radius]);
-				}
-		}
-
-		difference() {
-			// Draw TopFloor
-			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius]) 
-				cylinder(r1 = radius, r2 = radius * 0.9, h = radius, $fn = DEGRESS);
-	
-			// Draw TopFloor Space
-			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.5])
-				cylinder(r = 0.6 * radius, h = radius * 0.51, $fn = DEGRESS);
-		}
+		drawRoundFisrtTowerPrincipalColumn(radius, height);
+		drawRoundFirstTowerTopFloor(radius, height);
 	}
 }
 
