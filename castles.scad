@@ -17,9 +17,7 @@ module drawTriangularRoofTower(width, height) {
 				drawTopEmptyTriangularSpace([width, height]);
 			}
 
-			translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - width * 0.2]) rotate(a = [90, 0, 0]) 
-				linear_extrude(height = width, center = true)
-					polygon(points=[[-width / 2, 0], [width / 2, 0], [0, width / 2]]);
+			drawTopTriangle([width, height]);
 		}
 
 		translate([width / 2, 0, height - width * 0.8])
@@ -34,6 +32,12 @@ module drawTriangularRoofTower(width, height) {
 		translate([-width / 2, 0, height - width * 0.8])
 			cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
 	}
+}
+
+module drawTopTriangle(2dFillSpace) {
+	translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y] - 2dFillSpace[X] * 0.2]) rotate(a = [90, 0, 0]) 
+		linear_extrude(height = 2dFillSpace[X], center = CUBE_CENTER)
+			polygon(points=[[-2dFillSpace[X] / 2, 0], [2dFillSpace[X] / 2, 0], [0, 2dFillSpace[X] / 2]]);
 }
 
 module drawTopEmptyTriangularSpace(2dFillSpace) {
