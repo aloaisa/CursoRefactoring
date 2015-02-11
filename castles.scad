@@ -22,17 +22,23 @@ module drawTriangularRoofTower(width, height) {
 }
 
 module drawWindows(width, height) {
-	translate([width / 2, 0, height - width * 0.8])
-		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+	positionWindow1 = [width / 2, 0, height - width * 0.8];
+	positionWindow2 = [0, width / 2, height - width * 0.8];
+	positionWindow3 = [0, -width / 2, height - width * 0.8];
+	positionWindow4 = [-width / 2, 0, height - width * 0.8];
+	windowDimensions = [width * 0.2, width * 0.2, width * 0.2];
 
-	translate([0, width / 2, height - width * 0.8])
-		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+	translate(positionWindow1)
+		cube(windowDimensions, center = CUBE_CENTER);
 
-	translate([0, -width / 2, height - width * 0.8])
-		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+	translate(positionWindow2)
+		cube(windowDimensions, center = CUBE_CENTER);
 
-	translate([-width / 2, 0, height - width * 0.8])
-		cube([width * 0.2, width * 0.2, width * 0.2], center = CUBE_CENTER);
+	translate(positionWindow3)
+		cube(windowDimensions, center = CUBE_CENTER);
+
+	translate(positionWindow4)
+		cube(windowDimensions, center = CUBE_CENTER);
 }
 
 module drawTopTriangle(2dFillSpace) {
