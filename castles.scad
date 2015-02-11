@@ -6,27 +6,6 @@ include <squareTower.scad>
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
 
-module tower_r0(r, h){
-	union(){
-	cylinder(r=r, h=h*0.2, $fn=30);
-	difference(){
-	cylinder(r=r*0.8, h=h-r, $fn=30);
-	translate([0, 0, h*0.195])
-	for(i=[1:12]){
-		rotate(a=[0, 0, i*30])
-		translate([r*0.7, 0, 0])
-		cube([r*0.2, r*0.2, h*0.81-r]);
-	}
-	}
-	difference(){
-		translate([0, 0, h-r]) 
-		cylinder(r1=r, r2=r*0.9, h=r, $fn=30);
-		translate([0, 0, h-r*0.5])
-		cylinder(r=0.6*r, h=r*0.51, $fn=30);
-	}
-	}
-}
-
 module tower_r1(r, h){
 	union(){
 	difference(){
@@ -47,23 +26,44 @@ module tower_r1(r, h){
 	}
 }
 
+module drawRoundFirstTower(r, h) {
+	union(){
+	cylinder(r=r, h=h*0.2, $fn=30);
+	difference(){
+	cylinder(r=r*0.8, h=h-r, $fn=30);
+	translate([0, 0, h*0.195])
+	for(i=[1:12]){
+		rotate(a=[0, 0, i*30])
+		translate([r*0.7, 0, 0])
+		cube([r*0.2, r*0.2, h*0.81-r]);
+	}
+	}
+	difference(){
+		translate([0, 0, h-r]) 
+		cylinder(r1=r, r2=r*0.9, h=r, $fn=30);
+		translate([0, 0, h-r*0.5])
+		cylinder(r=0.6*r, h=r*0.51, $fn=30);
+	}
+	}
+}
+
 module createRoundFirstTower() {
-	WIDTH = 5;
+	RADIUS = 5;
 	HEIGHT = 15;
 	positionFirstTower = [SPACE_BASE_POSITION, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
 
 	translate(positionFirstTower)
-		tower_r0(WIDTH, HEIGHT);
+		drawRoundFirstTower(RADIUS, HEIGHT);
 }
 
 module createRoundSecondTower() {
-	WIDTH = 8;
+	RADIUS = 8;
 	HEIGHT = 20;
 
 	positionSecondTower = [SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
 
 	translate(positionSecondTower)
-		tower_r1(WIDTH, HEIGHT);
+		tower_r1(RADIUS, HEIGHT);
 }
 
 module drawSquareTowers() {
