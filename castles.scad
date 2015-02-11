@@ -28,17 +28,15 @@ module drawWindows(width, height) {
 	positionWindow4 = [-width / 2, 0, height - width * 0.8];
 	windowDimensions = [width * 0.2, width * 0.2, width * 0.2];
 
-	translate(positionWindow1)
-		cube(windowDimensions, center = CUBE_CENTER);
+	drawWindow(positionWindow1, windowDimensions);
+	drawWindow(positionWindow2, windowDimensions);
+	drawWindow(positionWindow3, windowDimensions);
+	drawWindow(positionWindow4, windowDimensions);
+}
 
-	translate(positionWindow2)
-		cube(windowDimensions, center = CUBE_CENTER);
-
-	translate(positionWindow3)
-		cube(windowDimensions, center = CUBE_CENTER);
-
-	translate(positionWindow4)
-		cube(windowDimensions, center = CUBE_CENTER);
+module drawWindow(position, dimensions) {
+	translate(position)
+		cube(dimensions, center = CUBE_CENTER);
 }
 
 module drawTopTriangle(2dFillSpace) {
