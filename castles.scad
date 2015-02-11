@@ -35,14 +35,30 @@ module drawTriangularRoofTower(width, height) {
 }
 
 module drawTopTriangle(2dFillSpace) {
-	translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y] - 2dFillSpace[X] * 0.2]) rotate(a = [90, 0, 0]) 
-		linear_extrude(height = 2dFillSpace[X], center = CUBE_CENTER)
-			polygon(points=[[-2dFillSpace[X] / 2, 0], [2dFillSpace[X] / 2, 0], [0, 2dFillSpace[X] / 2]]);
+	ROTATE_ANGLE = [90, 0, 0];
+	zVariation = 2dFillSpace[Y] - 2dFillSpace[X] * 0.2;
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, zVariation];
+	
+	variationTriangle = halfOf(2dFillSpace[X]);
+
+	xTriangle = [-variationTriangle, SPACE_BASE_POSITION];
+	yTriangle = [variationTriangle, SPACE_BASE_POSITION];
+	zTriangle = [SPACE_BASE_POSITION, variationTriangle];
+
+	3dTrianglePolygon = [xTriangle, yTriangle, zTriangle];
+
+	translate(position) rotate(a = ROTATE_ANGLE) 
+			linear_extrude(height = 2dFillSpace[X], center = CUBE_CENTER)
+				polygon(points=3dTrianglePolygon);
 }
 
 module drawTopEmptyTriangularSpace(2dFillSpace) {
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, 2dFillSpace[Y] - 2dFillSpace[X] * 0.195];
-	dimensions = [2dFillSpace[X], 2dFillSpace[X], 2dFillSpace[X] * 0.4];
+	zVariationPosition = 2dFillSpace[Y] - 2dFillSpace[X] * 0.195;
+	zVariationDimension = 2dFillSpace[X] * 0.4;
+
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, zVariationPosition];
+	dimensions = [2dFillSpace[X], 2dFillSpace[X], zVariationDimension];
+
 	translate(position) 
 			cube(dimensions, center = CUBE_CENTER);
 }
