@@ -48,23 +48,28 @@ module tower_r1(r, h){
 }
 
 module drawRoundFirstTower() {
+	WIDTH = 5;
+	HEIGHT = 15;
 	positionFirstTower = [SPACE_BASE_POSITION, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
 
 	translate(positionFirstTower)
-		tower_r0(5, 15);
+		tower_r0(WIDTH, HEIGHT);
 }
 
 module drawRoundSecondTower() {
+	WIDTH = 8;
+	HEIGHT = 20;
+
 	positionSecondTower = [SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
 
 	translate(positionSecondTower)
-		tower_r1(8, 20);
+		tower_r1(WIDTH, HEIGHT);
 }
 
 module drawSquareTowers() {
 	WIDTH = 10;
-	HEIGTH = 15;
-	2dFillSpace = [WIDTH, HEIGTH];
+	HEIGHT = 15;
+	2dFillSpace = [WIDTH, HEIGHT];
 
 	positionFirstTower = [-SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
 	positionSecondTower = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
