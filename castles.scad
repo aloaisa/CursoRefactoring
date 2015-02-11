@@ -26,11 +26,6 @@ module tower_r1(r, h){
 	}
 }
 
-module drawCylinder(radius, height) {
-	DEGRESS = 30;
-	cylinder(r = radius, h = height, $fn = DEGRESS);
-}
-
 module drawRoundFirstTowerTopFloor(radius, height) {
 	DEGRESS = 30;
 
@@ -44,6 +39,8 @@ module drawRoundFirstTowerTopFloor(radius, height) {
 }
 
 module drawRoundFisrtTowerPrincipalColumn(radius, height) {
+	DEGRESS = 30;
+
 	difference() {
 		drawCylinder(radius * 0.8, height - radius);
 
@@ -56,11 +53,17 @@ module drawRoundFisrtTowerPrincipalColumn(radius, height) {
 	}
 }
 
+module drawCylinder(radius, height) {
+	DEGRESS = 30;
+	cylinder(r = radius, h = height, $fn = DEGRESS);
+}
+
 module drawRoundFirstTower(radius, height) {
 	DEGRESS = 30;
+	baseHeight = height * 0.2;
 
 	union() {
-		drawCylinder(radius, height * 0.2);
+		drawCylinder(radius, baseHeight);
 		drawRoundFisrtTowerPrincipalColumn(radius, height);
 		drawRoundFirstTowerTopFloor(radius, height);
 	}
