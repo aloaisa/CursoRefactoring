@@ -30,13 +30,14 @@ module drawWindows(width, height) {
 	positionWindow2 = [SPACE_BASE_POSITION, halfWidth, zPosition];
 	positionWindow3 = [SPACE_BASE_POSITION, -halfWidth, zPosition];
 	positionWindow4 = [-halfWidth, SPACE_BASE_POSITION, zPosition];
+	positionWindows = [positionWindow1, positionWindow2, positionWindow3, positionWindow4];
 
 	windowDimensions = [dimensionVariation, dimensionVariation, dimensionVariation];
 
-	drawWindow(positionWindow1, windowDimensions);
-	drawWindow(positionWindow2, windowDimensions);
-	drawWindow(positionWindow3, windowDimensions);
-	drawWindow(positionWindow4, windowDimensions);
+	indexWindows = [0 : len(positionWindows)];
+	for(index = indexWindows) {
+		drawWindow(positionWindows[index], windowDimensions);
+	}
 }
 
 module drawWindow(position, dimensions) {
