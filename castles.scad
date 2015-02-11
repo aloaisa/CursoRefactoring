@@ -47,7 +47,7 @@ module tower_r1(r, h){
 	}
 }
 
-module drawRoundFirstTower() {
+module createRoundFirstTower() {
 	WIDTH = 5;
 	HEIGHT = 15;
 	positionFirstTower = [SPACE_BASE_POSITION, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
@@ -56,7 +56,7 @@ module drawRoundFirstTower() {
 		tower_r0(WIDTH, HEIGHT);
 }
 
-module drawRoundSecondTower() {
+module createRoundSecondTower() {
 	WIDTH = 8;
 	HEIGHT = 20;
 
@@ -86,8 +86,8 @@ module drawSquareTowers() {
 }
 
 module drawRoundTowers() {
-	drawRoundFirstTower();
-	drawRoundSecondTower();
+	createRoundFirstTower();
+	createRoundSecondTower();
 }
 
 module main() {
