@@ -46,17 +46,26 @@ module drawRoundFirstTowerTopFloor(radius, height) {
 
 module drawRoundFisrtTowerPrincipalColumn(radius, height) {
 	DEGRESS = 30;
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height * 0.195];
 
 	difference() {
 		drawCylinder(radius * 0.8, height - radius);
-
-		translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height * 0.195])
+		
+		translate(position)
 			for(i = [1 : 12]) {
 				rotate(a = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, i * DEGRESS])
-					translate([radius * 0.7, SPACE_BASE_POSITION, SPACE_BASE_POSITION])
-						cube([radius * 0.2, radius * 0.2, height * 0.81 - radius]);
+					drawColumn(radius, height);
 			}
 	}
+}
+
+module drawColumn(radius, height) {
+	position = [radius * 0.7, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
+	3dCube = [radius * 0.2, radius * 0.2, height * 0.81 - radius];
+
+	translate(position)
+		cube(3dCube);
+
 }
 
 module drawCylinder(radius, height) {
@@ -78,20 +87,13 @@ module drawRoundFirstTower(radius, height) {
 module createRoundFirstTower() {
 	RADIUS = 5;
 	HEIGHT = 15;
-	positionFirstTower = [SPACE_BASE_POSITION, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
-
-	translate(positionFirstTower)
-		drawRoundFirstTower(RADIUS, HEIGHT);
+	drawRoundFirstTower(RADIUS, HEIGHT);
 }
 
 module createRoundSecondTower() {
 	RADIUS = 8;
 	HEIGHT = 20;
-
-	positionSecondTower = [SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
-
-	translate(positionSecondTower)
-		tower_r1(RADIUS, HEIGHT);
+	tower_r1(RADIUS, HEIGHT);
 }
 
 module drawSquareTowers() {
@@ -114,8 +116,14 @@ module drawSquareTowers() {
 }
 
 module drawRoundTowers() {
-	createRoundFirstTower();
-	createRoundSecondTower();
+	positionFirstTower = [SPACE_BASE_POSITION, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
+	positionSecondTower = [SPACE_BETWEEN_TOWERS, SPACE_BETWEEN_TOWERS, SPACE_BASE_POSITION];
+
+	translate(positionFirstTower)
+		createRoundFirstTower();
+
+	translate(positionSecondTower)
+		createRoundSecondTower();
 }
 
 module main() {
