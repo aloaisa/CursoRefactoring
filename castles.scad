@@ -27,7 +27,7 @@ module drawCentralColumnRoundBaseTower(radius, height) {
 	drawCylinder(SecondCylinderRadius, height);
 }
 
-module drawToopFloorSecondRoundTower(radius, height) {
+module drawTopFloorSecondRoundTower(radius, height) {
 	xPosition = height - radius * 0.25;
 	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, xPosition];
 	cylinderHeight = radius * 0.075;
@@ -36,20 +36,46 @@ module drawToopFloorSecondRoundTower(radius, height) {
 		drawCylinder(radius, cylinderHeight);
 
 }
+
+module drawCubeDecoration(radius) {
+	xCube = radius * 0.55;
+	yCube = radius * 0.075;
+	zCube = radius * 0.2;
+	cudeDimensions = [xCube, yCube , zCube];
+
+	cube(cudeDimensions);
+}
+module drawBlodDecoration(index, radius) {
+	xPositon = radius * 0.45;
+	position = [xPositon, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
+
+	translate(position)
+		drawCubeDecoration(radius);
+}
+
+module drawDecorationSecondRoundTower(radius, height) {
+	RANGE = [1 : 24];
+
+	for (index = RANGE) {
+		rotate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, index * 15])
+			drawBlodDecoration(index, radius);
+	}
+}
+
+module drawTopDecorationSecondRoundTower(radius, height) {
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.25];
+	
+	translate(position) {
+		drawDecorationSecondRoundTower(radius, height);
+	}
+}
+
 module drawSecondRoundTower(radius, height) {
 	union() {
 		drawSecondRoundBaseTower(radius, height);
 		drawCentralColumnRoundBaseTower(radius, height);
-		drawToopFloorSecondRoundTower(radius, height);
-		
-		translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.25]) {
-			
-			for(i = [1 : 24]) {
-				rotate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, i * 15])
-					translate([radius * 0.45, SPACE_BASE_POSITION, SPACE_BASE_POSITION])
-						cube([radius * 0.55, radius * 0.075, radius * 0.2]);
-			}
-		}
+		drawTopFloorSecondRoundTower(radius, height);
+		drawTopDecorationSecondRoundTower(radius, height);
 	}
 }
 
