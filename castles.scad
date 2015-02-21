@@ -60,8 +60,13 @@ module drawRoundFisrtTowerPrincipalColumn(radius, height) {
 }
 
 module drawColumn(radius, height) {
-	position = [radius * 0.7, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
-	3dCube = [radius * 0.2, radius * 0.2, height * 0.81 - radius];
+	X_POSITION = radius * 0.7;
+	X_CUBE = radius * 0.2;
+	Y_CUBE = radius * 0.2;
+	Z_CUBE = height * 0.81 - radius;
+
+	position = [X_POSITION, SPACE_BASE_POSITION, SPACE_BASE_POSITION];
+	3dCube = [X_CUBE, Y_CUBE, Z_CUBE];
 
 	translate(position)
 		cube(3dCube);
