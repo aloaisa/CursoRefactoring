@@ -28,10 +28,12 @@ module drawCentralColumnRoundBaseTower(radius, height) {
 }
 
 module drawToopFloorSecondRoundTower(radius, height) {
-	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.25];
-
+	xPosition = height - radius * 0.25;
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, xPosition];
+	cylinderHeight = radius * 0.075;
+	
 	translate(position)
-		cylinder(r = radius, h = radius * 0.075, $fn = DEGRESS);
+		drawCylinder(radius, cylinderHeight);
 
 }
 module drawSecondRoundTower(radius, height) {
