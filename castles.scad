@@ -11,15 +11,15 @@ module drawSecondRoundTower(r, h) {
 	union() {
 	
 		difference() {
-			cylinder(r = r, h = h - r * 0.8, $fn = 30);
-			cylinder(r = r * 0.9, h = h - r * 0.7, $fn = 30);
+			cylinder(r = r, h = h - r * 0.8, $fn = DEGRESS);
+			cylinder(r = r * 0.9, h = h - r * 0.7, $fn = DEGRESS);
 		}
 
-		cylinder(r = r * 0.65, h = h - r * 0.3, $fn = 30);
-		cylinder(r = r * 0.4, h = h, $fn = 30);
+		cylinder(r = r * 0.65, h = h - r * 0.3, $fn = DEGRESS);
+		cylinder(r = r * 0.4, h = h, $fn = DEGRESS);
 
 		translate([0, 0, h - r * 0.25])
-			cylinder(r = r, h = r * 0.075, $fn = 30);
+			cylinder(r = r, h = r * 0.075, $fn = DEGRESS);
 		
 		translate([0, 0, h - r * 0.25]) {
 			

@@ -1,3 +1,5 @@
+DEGRESS = 30;
+
 module drawColumn(radius, height) {
 	X_POSITION = radius * 0.7;
 	X_CUBE = radius * 0.2;
