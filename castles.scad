@@ -19,8 +19,12 @@ module drawSecondRoundBaseTower(radius, height) {
 }
 
 module drawCentralColumnRoundBaseTower(radius, height) {
-	cylinder(r = radius * 0.65, h = height - radius * 0.3, $fn = DEGRESS);
-	cylinder(r = radius * 0.4, h = height, $fn = DEGRESS);
+	FirstCylinderRadius = radius * 0.65;
+	FirstCylinderHeight = height - radius * 0.3;
+	SecondCylinderRadius = radius * 0.4;
+
+	cylinder(r = FirstCylinderRadius, h = FirstCylinderHeight, $fn = DEGRESS);
+	cylinder(r = SecondCylinderRadius, h = height, $fn = DEGRESS);
 }
 
 module drawSecondRoundTower(radius, height) {
