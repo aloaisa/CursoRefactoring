@@ -7,13 +7,21 @@ include <squareTower.scad>
 SPACE_BETWEEN_TOWERS = 20;
 SPACE_BASE_POSITION = 0;
 
+module drawSecondRoundBaseTower(radius, height) {
+	difference() {
+
+		heightFirstCylinder = height - radius * 0.8;
+		radiusSecondCylinder = radius * 0.9;
+		heightSecondCylinder = height - radius * 0.7;
+
+		cylinder(r = radius, h = heightFirstCylinder, $fn = DEGRESS);
+		cylinder(r = radiusSecondCylinder, h = heightSecondCylinder, $fn = DEGRESS);
+	}
+}
+
 module drawSecondRoundTower(radius, height) {
 	union() {
-	
-		difference() {
-			cylinder(r = radius, h = height - radius * 0.8, $fn = DEGRESS);
-			cylinder(r = radius * 0.9, h = height - radius * 0.7, $fn = DEGRESS);
-		}
+		drawSecondRoundBaseTower(radius, height);
 
 		cylinder(r = radius * 0.65, h = height - radius * 0.3, $fn = DEGRESS);
 		cylinder(r = radius * 0.4, h = height, $fn = DEGRESS);
