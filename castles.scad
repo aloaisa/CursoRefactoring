@@ -28,7 +28,9 @@ module drawCentralColumnRoundBaseTower(radius, height) {
 }
 
 module drawToopFloorSecondRoundTower(radius, height) {
-	translate([0, 0, height - radius * 0.25])
+	position = [SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.25];
+
+	translate(position)
 		cylinder(r = radius, h = radius * 0.075, $fn = DEGRESS);
 
 }
@@ -38,11 +40,11 @@ module drawSecondRoundTower(radius, height) {
 		drawCentralColumnRoundBaseTower(radius, height);
 		drawToopFloorSecondRoundTower(radius, height);
 		
-		translate([0, 0, height - radius * 0.25]) {
+		translate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, height - radius * 0.25]) {
 			
 			for(i = [1 : 24]) {
-				rotate([0, 0, i * 15])
-					translate([radius * 0.45, 0, 0])
+				rotate([SPACE_BASE_POSITION, SPACE_BASE_POSITION, i * 15])
+					translate([radius * 0.45, SPACE_BASE_POSITION, SPACE_BASE_POSITION])
 						cube([radius * 0.55, radius * 0.075, radius * 0.2]);
 			}
 		}
