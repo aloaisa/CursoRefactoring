@@ -13,8 +13,8 @@ module drawSecondRoundBaseTower(radius, height) {
 	heightSecondCylinder = height - radius * 0.7;
 	
 	difference() {
-		cylinder(r = radius, h = heightFirstCylinder, $fn = DEGRESS);
-		cylinder(r = radiusSecondCylinder, h = heightSecondCylinder, $fn = DEGRESS);
+		drawCylinder(radius, heightFirstCylinder);
+		drawCylinder(radiusSecondCylinder, heightSecondCylinder);
 	}
 }
 
@@ -23,17 +23,20 @@ module drawCentralColumnRoundBaseTower(radius, height) {
 	FirstCylinderHeight = height - radius * 0.3;
 	SecondCylinderRadius = radius * 0.4;
 
-	cylinder(r = FirstCylinderRadius, h = FirstCylinderHeight, $fn = DEGRESS);
-	cylinder(r = SecondCylinderRadius, h = height, $fn = DEGRESS);
+	drawCylinder(FirstCylinderRadius, FirstCylinderHeight);
+	drawCylinder(SecondCylinderRadius, height);
 }
 
+module drawToopFloorSecondRoundTower(radius, height) {
+	translate([0, 0, height - radius * 0.25])
+		cylinder(r = radius, h = radius * 0.075, $fn = DEGRESS);
+
+}
 module drawSecondRoundTower(radius, height) {
 	union() {
 		drawSecondRoundBaseTower(radius, height);
 		drawCentralColumnRoundBaseTower(radius, height);
-
-		translate([0, 0, height - radius * 0.25])
-			cylinder(r = radius, h = radius * 0.075, $fn = DEGRESS);
+		drawToopFloorSecondRoundTower(radius, height);
 		
 		translate([0, 0, height - radius * 0.25]) {
 			
